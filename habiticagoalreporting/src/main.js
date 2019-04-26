@@ -6,18 +6,20 @@ import VueRouter from 'vue-router'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import HabiticaApiTest from './components/HabiticaApiTest'
+import HabiticaApiExplorer from './components/HabiticaApiExplorer'
 import HelloWorld from './components/HelloWorld'
+import TreeView from "vue-json-tree-view"
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
+Vue.use(TreeView)
 
 const routes = [
   {
-    name: "HabiticaApiTest",
+    name: "HabiticaApiExplorer",
     path: "/ApiTest",
-    component: HabiticaApiTest
+    component: HabiticaApiExplorer
   },
   {
     name: "HelloWorld",

@@ -12,14 +12,10 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import HabiticaApiTest from './components/HabiticaApiTest.vue'
 
 export default {
   name: 'app',
   components: {
-    // HelloWorld,
-    HabiticaApiTest
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Habitica Api Explorer</h1>
     <!-- <b-form @submit="onSubmit"> -->
     <b-form>
         <b-form-group
@@ -28,9 +28,13 @@
         </b-form-group>
 
         <b-button variant="primary" @click="onSubmit">Get User Data</b-button>        
+        <b-button @click="setHeaders">Set Headers</b-button>     
     </b-form>
     <b-card class="mt-3" header="Form Data Result">
-        <pre class="m-0">{{ result }}</pre>
+        <pre class="m-0">
+            <tree-view :data="result" :options="{maxDepth: 10}"></tree-view>
+            {{ result }}
+        </pre>
     </b-card>
   </div>
 </template>
@@ -42,10 +46,9 @@ import axios from 'axios'
 const habiticaApiUrl='https://habitica.com/api/v3/tasks/user?type=completedTodos';
 
 export default {
-  name: 'HabiticaApiTest',
+  name: 'HabiticaApiExplorer',
   data: function () {
       return {
-        msg: "Test",
         form: {
             username: 'dd0cd644-3636-4249-bb8b-78d53ebecb42',
             password: '8c8b9e6b-8505-48a4-a1eb-3b64cd01f96a'
@@ -62,6 +65,7 @@ export default {
   },
   methods: {
       onSubmit: function () {
+          setHeaders();
           axios.get(
               habiticaApiUrl,
               this.config
@@ -74,6 +78,9 @@ export default {
                   console.log('ERROR', error)
               }
           )
+      },
+      setHeaders: function() {
+          this.config.headers[1] = 'test'
       }
   }
 }
