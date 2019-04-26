@@ -1,8 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HabiticaApiTest />
+    <!-- <HabiticaApiTest /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <div>
+      <ul>
+        <li><router-link to="/HelloWorld">Go Hello World</router-link></li>
+        <li><router-link to="/ApiTest">Go to Api Test</router-link></li>
+      </ul>
+      
+      
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
